@@ -87,7 +87,7 @@ if(selected == 'Diabetes Prediction'):
        
        if (diab_prediction[0]== 1):
            
-           diab_diagnosis='The person is Diabetic'
+           diab_diagnosis='The person is  Diabetic'
            
        else:
         
@@ -133,19 +133,23 @@ if(selected == 'Heart_disease prediction'):
         restecg=st.text_input('Resting Electrocardiographic results')
         
     with col2:
-        exang=st.text_input('Exercise induced angina')
+         thalach=st.text_input('Ethala')   
+        
         
     with col3:
-        oldpeak=st.text_input('ST depression induced by exercise relative to rest')
+        exang=st.text_input('Exercise induced angina')
         
     with col1:
-        slope=st.text_input('The slope of the peak exercise ST segment')
+        oldpeak=st.text_input('ST depression induced by exercise relative to rest')
         
     with col2:
+        slope=st.text_input('The slope of the peak exercise ST segment')
+        
+    with col3:
         ca=st.text_input('Number of major vessels colored by flourosopy')
         
         
-    with col3:
+    with col1:
         thal=st.text_input('0=normal 1=fixed defect 2=reversable defect')
         
   
@@ -160,9 +164,9 @@ if(selected == 'Heart_disease prediction'):
     #creating a button
     
     if st.button('Heart Disease Test Result'):
-       heart_prediction= heart_model.predict([[Age,sex,cp,trestbps,chol,fbs,restecg,exang,oldpeak,slope,ca,thal]])
+       heart_prediction= heart_model.predict([[Age,sex,cp,trestbps,chol,fbs,restecg,thalach,exang,oldpeak,slope,ca,thal]])
        
-       if (heart_prediction[0]== 1):
+       if (heart_prediction[0] == 1):
            
            heart_diagnosis='The person has heart disease'
            
@@ -269,11 +273,11 @@ if(selected == 'Parkinsons Prediction'):
        
        if (parkinsons_prediction[0]== 1):
            
-           parkinsons_diagnosis='The person is Diabetic'
+           parkinsons_diagnosis='The person has parkinsons'
            
        else:
         
-        parkinsons_diagnosis='The person is not diabetic'
+        parkinsons_diagnosis='The person idoes not have parkinsons'
            
         
     st.success(parkinsons_diagnosis) 
